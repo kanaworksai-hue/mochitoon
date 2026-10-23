@@ -5,15 +5,25 @@ The human only says something like *"make my Blender scene cute / manga style"* 
 Do not ask the human to click anything in Blender.
 
 ## 1. Find Blender
-- macOS: `/Applications/Blender*.app/Contents/MacOS/Blender` (pick the newest, needs 4.2+)
+- macOS: `/Applications/Blender*.app/Contents/MacOS/Blender`
 - Windows: `C:\Program Files\Blender Foundation\Blender */blender.exe`
 - Linux: `blender` on PATH
-Check with `<blender> --version`.
+Needs 4.2+. Folder names don't always show the version, so ask each one and pick the newest:
+```bash
+for b in /Applications/Blender*.app/Contents/MacOS/Blender; do echo "$("$b" --version | head -1) | $b"; done
+```
 
 ## 2. Install (once)
 Get the latest `mochitoon-<version>.zip` from https://github.com/kanaworksai-hue/mochitoon/releases
-(`gh release download -R kanaworksai-hue/mochitoon -p 'mochitoon-*.zip'`), and `agent/mochitoon_agent.py`
-from the repository, then:
+and `agent/mochitoon_agent.py` from the repository:
+```bash
+git clone --depth 1 https://github.com/kanaworksai-hue/mochitoon.git
+gh release download -R kanaworksai-hue/mochitoon -p 'mochitoon-*.zip'          # with gh
+# or without gh:
+curl -sL "$(curl -s https://api.github.com/repos/kanaworksai-hue/mochitoon/releases/latest \
+  | grep -o 'https://[^"]*mochitoon-[^"]*\.zip' | head -1)" -o mochitoon.zip
+```
+Then:
 
 ```bash
 <blender> -b --python agent/mochitoon_agent.py -- --install mochitoon-<version>.zip
@@ -45,6 +55,12 @@ bpy.ops.mochitoon.make_cute(palette="PUMPKIN", shape="STAR+MOON+SPARKLE", amount
 `outline`: `True`/`False`.
 
 ## 4. Turning the human's words into options
+
+**If the human gives no style at all** ("make it cute"), use this recipe — it looks good on any shape:
+`--palette SAKURA --shape HEART+STAR+SPARKLE --amount FEW --light-rim 0.8 --glow 0.4 --setup-scene`
+Add `--smooth` when the scene has low-poly rounded meshes (Blender's Suzanne, game assets). It subdivides them
+non-destructively and skips boxy meshes. Omit `--palette` on later tweaks: the current palette is kept, and so are
+the shapes, style and amount — only what you pass changes.
 
 | They say | palette |
 |---|---|
@@ -96,12 +112,15 @@ core.inputs["Highlight Size"].default_value = 0.8
 ```
 
 ## Getting the best result (do this, the human won't ask)
-1. Render a preview (`--render preview.png`) and look at it before reporting back.
+1. Render a preview (`--render preview.png`) and look at it before reporting back. If objects are cut off,
+   add `--frame-camera` (a separate camera; the human's own camera is not touched).
 2. Busy-looking? Switch to `SPRINKLE` with `FEW`; flat-looking? add `--light-rim 0.8 --glow 0.4`.
 3. Textured models (scans, generated characters) keep their textures automatically; plain models take the palette color.
-4. Offer two or three variations (palette × shapes) as small previews and let the human pick in one word.
+4. Offer two or three variations (palette × shapes) as small previews (`--preview-size 40`) and let the human pick in one word.
 5. Report what you changed in one sentence, with the preview.
 
 ## Notes
+- Don't mix up the commands: **installing** must not use `--factory-startup`; the README's Development section uses it
+  only for tests and builds.
 - Needs EEVEE. `--setup-scene` / `setup_scene=True` switches to EEVEE, Standard view transform, a sun and a flat background.
 - Orthographic cameras are not supported yet.

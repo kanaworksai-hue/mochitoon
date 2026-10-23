@@ -177,7 +177,7 @@ def is_line(material):
     return material is not None and material.get("mochitoon_line", False)
 
 
-def smooth_by_angle(mesh, degrees=40.0):
+def smooth_by_angle(mesh, degrees=75.0):
     """Smooth fully flat-shaded meshes (fresh primitives) but keep hard edges like a cube's.
     Meshes that already have any smooth shading are left exactly as the user made them."""
     if any(p.use_smooth for p in mesh.polygons):
@@ -188,6 +188,35 @@ def smooth_by_angle(mesh, degrees=40.0):
     else:
         for poly in mesh.polygons:
             poly.use_smooth = True
+
+
+def _sharp_fraction(mesh, degrees=75.0):
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    edges = [e for e in bm.edges if len(e.link_faces) == 2]
+    sharp = sum(1 for e in edges if math.degrees(e.calc_face_angle(0.0)) > degrees)
+    bm.free()
+    return sharp / max(1, len(edges))
+
+
+def add_smoothing(ob, max_faces=5000, levels=2):
+    """Low-poly meshes (Blender primitives, game assets) look faceted with toon bands: add a Subdivision
+    Surface modifier before the outline. Non-destructive; skipped if one exists or the mesh is dense."""
+    if ob.type != "MESH" or len(ob.data.polygons) > max_faces:
+        return False
+    if any(m.type == "SUBSURF" for m in ob.modifiers):
+        return False
+    if _sharp_fraction(ob.data) > 0.5:  # boxy / hard-surface: subdividing would melt it into a blob
+        return False
+    mod = ob.modifiers.new("MochiToon Smooth", "SUBSURF")
+    mod.levels = mod.render_levels = levels
+    outline = ob.modifiers.get(OUTLINE_MOD)
+    if outline is not None:  # keep the outline last so it follows the smooth surface
+        ob.modifiers.move(list(ob.modifiers).index(outline), len(ob.modifiers) - 1)
+    for poly in ob.data.polygons:
+        poly.use_smooth = True
+    return True
 
 
 def apply_to_objects(objects, palette_key, keep_colors=False):

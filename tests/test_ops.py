@@ -112,6 +112,19 @@ try:
     check("mixed shapes", core.enabled_shapes(cn) == ["STAR", "FLOWER", "MOON"])
     check("amount turns on sprinkle", cn.inputs["Dot Style"].default_value == 1 and
           abs(cn.inputs["Sprinkle Amount"].default_value - 0.15) < 1e-6)
+    bpy.ops.mochitoon.make_cute(palette="mint", target="ALL")
+    cn = nodes.find_core_node(cube.material_slots[0].material)
+    check("re-apply keeps shapes/amount", core.enabled_shapes(cn) == ["STAR", "FLOWER", "MOON"] and
+          abs(cn.inputs["Sprinkle Amount"].default_value - 0.15) < 1e-6)
+    bpy.ops.mochitoon.make_cute(shape="HEART", target="ALL")
+    cn = nodes.find_core_node(cube.material_slots[0].material)
+    check("no palette keeps the current one", cube.material_slots[0].material["mochitoon_palette"] == "MINT")
+    bpy.ops.mesh.primitive_monkey_add(location=(0, 4, 0))
+    monkey = bpy.context.object
+    bpy.ops.mochitoon.make_cute(target="ALL", smooth=True)
+    check("smooth adds subsurf to Suzanne", any(m.type == "SUBSURF" for m in monkey.modifiers))
+    check("smooth skips the cube", not any(m.type == "SUBSURF" for m in cube.modifiers))
+    check("outline stays last", monkey.modifiers[-1].name == core.OUTLINE_MOD)
     check("light rim + glow", cn.inputs["Light Rim Amount"].default_value > 0.7 and cn.inputs["Glow"].default_value > 0.4)
     check("cube keeps hard edges", any(e.use_edge_sharp for e in cube.data.edges) or not all(p.use_smooth for p in cube.data.polygons))
     try:

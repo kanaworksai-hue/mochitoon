@@ -139,8 +139,9 @@ class MOCHITOON_OT_make_cute(bpy.types.Operator):
     bl_label = "Make Cute (one call)"
     bl_options = {"REGISTER", "UNDO"}
 
-    palette: bpy.props.StringProperty(name="Palette", default="SAKURA",
-                                      description="Palette name, e.g. SAKURA, LEMON, NEON_NIGHT, PUMPKIN")
+    palette: bpy.props.StringProperty(name="Palette", default="",
+                                      description="Palette name, e.g. SAKURA, LEMON, NEON_NIGHT, PUMPKIN "
+                                                  "(empty keeps the objects' palette, SAKURA for new ones)")
     shape: bpy.props.StringProperty(name="Shapes", default="",
                                     description="One or more of CIRCLE HEART STAR FLOWER SPARKLE MOON, e.g. STAR+FLOWER "
                                                 "(empty keeps the current shapes)")
@@ -164,14 +165,17 @@ class MOCHITOON_OT_make_cute(bpy.types.Operator):
     ))
     outline: BoolProperty(name="Outline", default=True)
     setup_scene: BoolProperty(name="Setup Cute Scene", default=False)
+    smooth: BoolProperty(name="Smooth Low-Poly", default=False,
+                         description="Add a Subdivision Surface modifier to low-poly, rounded meshes (skips boxy ones)")
 
     def execute(self, context):
         from . import api
         try:
             report = api.make_cute(
-                palette=self.palette, shape=self.shape or None, target=self.target,
+                palette=self.palette or None, shape=self.shape or None, target=self.target,
                 style=self.style or None, amount=self.amount or None,
                 light_rim=None if self.light_rim < 0 else self.light_rim, glow=None if self.glow < 0 else self.glow,
+                smooth=self.smooth,
                 keep_colors={"AUTO": None, "YES": True, "NO": False}[self.keep_colors],
                 outline=self.outline, setup_scene=self.setup_scene, context=context,
             )

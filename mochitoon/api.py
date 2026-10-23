@@ -63,15 +63,20 @@ def resolve_objects(target="SELECTED", names=None, context=None):
 
 def make_cute(objects=None, palette="SAKURA", shape=None, keep_colors=None, outline=True,
               outline_width=0.02, setup_scene=False, target="SELECTED_OR_ALL", context=None,
-              style=None, amount=None, light_rim=None, glow=None):
+              style=None, amount=None, light_rim=None, glow=None, smooth=False):
     """Apply MochiToon. Returns a short human-readable report.
 
     shape: one or more of CIRCLE HEART STAR FLOWER SPARKLE MOON ("STAR+FLOWER" or a list)
     style: GRID (classic halftone) or SPRINKLE (scattered stickers); amount: FEW/SOME/MANY/LOTS or 0-1
-    light_rim / glow: 0-1"""
+    light_rim / glow: 0-1
+    palette None keeps the palette the objects already have (SAKURA for new ones)
+    smooth: add a Subdivision Surface modifier to low-poly meshes (non-destructive)"""
     context = context or bpy.context
-    key = palette_key(palette)
     objs = objects if objects is not None else resolve_objects(target, context=context)
+    if palette in (None, "", "KEEP"):
+        palette = next((sl.material.get("mochitoon_palette") for ob in objs for sl in ob.material_slots
+                        if core.is_mochi(sl.material) and sl.material.get("mochitoon_palette")), "SAKURA")
+    key = palette_key(palette)
     if not objs:
         return "No mesh objects to change."
     core.parse_shapes(shape)  # validate before touching the scene
@@ -84,7 +89,25 @@ def make_cute(objects=None, palette="SAKURA", shape=None, keep_colors=None, outl
         core.setup_scene(context.scene, key)
         if context.screen:
             core.setup_viewports(context.screen)
+    # re-applying (e.g. a new palette) keeps the look choices the user already made
+    keep_keys = ("Dot Style", "Sprinkle Amount", "Light Rim Amount", "Glow", "Dot Density", "Highlight Size") + \
+        tuple(name for _, _, name in nodes.SHAPES)
+    before = {}
+    for ob in objs:
+        node = next((nodes.find_core_node(sl.material) for sl in ob.material_slots
+                     if nodes.find_core_node(sl.material) is not None), None)
+        if node is not None:
+            before[ob.name] = {k: node.inputs[k].default_value for k in keep_keys if node.inputs.get(k) is not None}
     n = core.apply_to_objects(objs, key, keep_colors=keep_colors)
+    if smooth:
+        for ob in objs:
+            core.add_smoothing(ob)
+    for ob in objs:
+        for slot in ob.material_slots:
+            node = nodes.find_core_node(slot.material)
+            if node is not None:
+                for k, v in before.get(ob.name, {}).items():
+                    node.inputs[k].default_value = v
     pal = PALETTES[key]
     line = core.outline_material(hex_to_linear(pal["line"]), pal["label"])
     for ob in objs:

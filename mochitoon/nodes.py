@@ -19,7 +19,7 @@ import math
 import bpy
 
 GROUP_NAME = "MochiToon Core"
-GROUP_VERSION = 4
+GROUP_VERSION = 5
 
 # (key, label, group input) -- each shape is a 0/1 toggle; cells choose among the enabled ones
 SHAPES = (("CIRCLE", "Circle", "Circle"), ("HEART", "Heart", "Heart"), ("STAR", "Star", "Star"),
@@ -42,7 +42,7 @@ INPUTS = (
     ("Dots", "Highlight Size", "NodeSocketFloat", 0.5, 0.0, 1.0, "FACTOR"),
     ("Dots", "Dot Density", "NodeSocketFloat", 130.0, 1.0, 1000.0, None),
     ("Dots", "Dot Angle", "NodeSocketFloat", math.radians(45.0), -math.pi, math.pi, "ANGLE"),
-    ("Dots", "Dot Style", "NodeSocketInt", 0, 0, 1, None),
+    ("Dots", "Dot Style", "NodeSocketInt", 1, 0, 1, None),
     ("Dots", "Sprinkle Amount", "NodeSocketFloat", 0.3, 0.0, 1.0, "FACTOR"),
     ("Dots", "Size Variation", "NodeSocketFloat", 0.25, 0.0, 1.0, "FACTOR"),
     ("Dots", "Spin", "NodeSocketFloat", 0.0, 0.0, 1.0, "FACTOR"),
@@ -290,7 +290,9 @@ def build_group(tree):
 
     angle = gi_["Dot Angle"]
     style = gi_["Dot Style"]  # 0 halftone grid, 1 sprinkle
-    grid = b.rotate_z(b.vmath("SCALE", screen, scale=gi_["Dot Density"]), angle)
+    # stickers want bigger cells than a halftone grid: sprinkle uses ~0.28 x the density
+    density = b.mul(gi_["Dot Density"], b.math("MULTIPLY_ADD", style, -0.72, 1.0))
+    grid = b.rotate_z(b.vmath("SCALE", screen, scale=density), angle)
     cell = b.vmath("FLOOR", grid)
     rnd1 = b.white_noise(cell)                               # value + 3 channels per cell
     rnd2 = b.white_noise(b.vmath("ADD", cell, (17.3, 5.1, 0.0)))
