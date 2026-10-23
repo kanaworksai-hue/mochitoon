@@ -1,0 +1,13 @@
+tests/out/
+dist/
+__pycache__/
+*.blend1
+.DS_Store
+examples/bunny/
+examples/*.blend
+examples/*.mp4
+promo/halloween/models/
+promo/frames/
+promo/halloween/frames/
+promo/
+examples/

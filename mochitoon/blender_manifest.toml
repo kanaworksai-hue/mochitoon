@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+
+id = "mochitoon"
+version = "0.3.0"
+name = "MochiToon"
+tagline = "Cute comic toon shading with halftone dots in one click"
+maintainer = "Tokyo AI Visuals LLC"
+type = "add-on"
+
+tags = ["Material", "Render", "Lighting"]
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
