@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2026 東京AI映像合同会社 (Tokyo AI Visuals LLC)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import bpy

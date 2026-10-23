@@ -1,7 +1,9 @@
+# SPDX-FileCopyrightText: 2026 東京AI映像合同会社 (Tokyo AI Visuals LLC)
+# SPDX-License-Identifier: GPL-3.0-or-later
 schema_version = "1.0.0"
 
 id = "mochitoon"
-version = "0.3.2"
+version = "0.3.3"
 name = "MochiToon"
 tagline = "Cute comic toon shading with halftone dots in one click"
 maintainer = "Tokyo AI Visuals LLC"

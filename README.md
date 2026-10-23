@@ -216,7 +216,7 @@ agent/mochitoon_agent.py  AI エージェント用のコマンドライン
 
 ## 📄 ライセンスとクレジット
 
-- **このアドオン：** [GPL-3.0-or-later](LICENSE)。
+- **このアドオン：** Copyright © 2026 東京AI映像合同会社。[GPL-3.0-or-later](LICENSE) で公開しています。
 - **ブランド：** KanaWorks_AI の名称、ロゴ、キャラクター Kana の権利は東京AI映像合同会社に帰属し、GPL の対象**外**です。詳しくは [docs/brand](docs/brand/README.md) を見てください。
 - **Blender** は Blender Foundation の商標です。サンプル画像には、Blender 標準のモンキー（Suzanne）と、作者が用意したハロウィンのモデル（おばけ、かぼちゃ、魔女の帽子、コウモリ）を使っています。
 

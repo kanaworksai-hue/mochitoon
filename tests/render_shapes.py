@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2026 東京AI映像合同会社 (Tokyo AI Visuals LLC)
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Shape sheet: one sphere per shape (sprinkle mode) + a mixed one, light rim and glow on.
 
   Blender -b --factory-startup --python tests/render_shapes.py -- out.png [GRID|SPRINKLE]

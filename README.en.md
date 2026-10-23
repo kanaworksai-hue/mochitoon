@@ -216,7 +216,7 @@ agent/mochitoon_agent.py  command line for AI agents
 
 ## 📄 License and credits
 
-- **This add-on:** [GPL-3.0-or-later](LICENSE).
+- **This add-on:** Copyright © 2026 東京AI映像合同会社 (Tokyo AI Visuals LLC), released under [GPL-3.0-or-later](LICENSE).
 - **Brand:** the KanaWorks_AI name, logo and the Kana character belong to 東京AI映像合同会社 (Tokyo AI Visuals LLC) and are **not** covered by the GPL. See [docs/brand](docs/brand/README.md).
 - **Blender** is a trademark of the Blender Foundation. The sample images use Blender's built-in monkey, Suzanne, plus Halloween models made for this project (ghost, pumpkin, witch hat, bat).
 

@@ -216,7 +216,7 @@ agent/mochitoon_agent.py  给 AI 助手用的命令行
 
 ## 📄 许可与致谢
 
-- **本插件：** [GPL-3.0-or-later](LICENSE)。
+- **本插件：** Copyright © 2026 东京AI映像合同会社，以 [GPL-3.0-or-later](LICENSE) 发布。
 - **品牌：** KanaWorks_AI 的名称、logo 和 Kana 形象的权利归东京AI映像合同会社所有，**不在** GPL 授权范围内。详见 [docs/brand](docs/brand/README.md)。
 - **Blender** 是 Blender Foundation 的商标。示例图里用的是 Blender 自带的猴头 Suzanne，以及作者为本项目准备的万圣节模型（幽灵、南瓜、魔女帽、蝙蝠）。
 
