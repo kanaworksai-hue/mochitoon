@@ -1,32 +1,62 @@
 # MochiToon
 
+![MochiToon — AIに一言で、3Dがマンガ風に！](docs/hero.jpg)
+
 **AIに一言で、3Dがかわいいマンガ風に。**
 **Cute comic toon shading for Blender, in one sentence to your AI.**
 **对 AI 说一句话，3D 就变成可爱的漫画风。**
 
-![MochiToon showcase](docs/showcase.png)
-
-![Shapes and lighting](docs/v03_preview.png)
-
 無料・オープンソース（GPL-3.0-or-later）／ Free and open source ／ 免费开源 — Blender 4.2+, EEVEE
+
+[日本語](#日本語) · [English](#english) · [中文](#中文)
 
 ## AIに頼むだけ ｜ Just ask your AI agent ｜ 交给 AI 就行
 
 自分でインストールする必要はありません。AIエージェントにこう送るだけ：
 
-> https://github.com/kanaworksai-hue/mochitoon の AGENTS.md に従って MochiToon をインストールして、私の Blender シーンをピンクのハート網点でかわいくして。
+> https://github.com/kanaworksai-hue/mochitoon の AGENTS.md に従って MochiToon をインストールして、私の Blender シーンをかわいいマンガ風にして。
 
 You don't install anything yourself. Send this to your AI agent:
 
-> Install MochiToon from https://github.com/kanaworksai-hue/mochitoon (follow its AGENTS.md) and make my Blender scene cute with the Sakura palette and heart dots.
+> Install MochiToon from https://github.com/kanaworksai-hue/mochitoon (follow its AGENTS.md) and make my Blender scene look like a cute comic.
 
 不用自己安装，把这句话发给你的 AI 助手：
 
-> 按照 https://github.com/kanaworksai-hue/mochitoon 的 AGENTS.md 安装 MochiToon，然后把我的 Blender 场景用粉色爱心网点变可爱。
+> 按照 https://github.com/kanaworksai-hue/mochitoon 的 AGENTS.md 安装 MochiToon，然后把我的 Blender 场景变成可爱的漫画风。
 
 AIは [AGENTS.md](AGENTS.md) を読んで、インストール・適用・プレビューまで自動で行います。
 The agent reads [AGENTS.md](AGENTS.md), installs the add-on, applies it and shows you a preview.
 AI 会读取 [AGENTS.md](AGENTS.md)，自动完成安装、应用和预览。
+
+## ギャラリー ｜ Gallery ｜ 效果一览
+
+### 5つの層 ｜ Five layers ｜ 五层叠加
+
+![Plain 3D → colored shadow → stickers → hatching → light rim → outline](docs/layers.png)
+
+### ハイライトの形 ｜ Highlight shapes ｜ 高光图形
+
+6種類を自由に組み合わせ ／ Mix any of the six ／ 六种图形自由搭配
+
+![Circle, heart, star, flower, sparkle, moon](docs/shapes.png)
+
+### 網点とちらし ｜ Halftone or stickers ｜ 网点与散布贴纸
+
+![Halftone grid vs sprinkle stickers](docs/styles.png)
+
+### 光の向きで変わる ｜ Reacts to the light ｜ 随光线变化
+
+![Front light, side light, back light](docs/lighting.png)
+
+### パレット13種 ｜ 13 palettes ｜ 13 套配色
+
+![13 palettes](docs/palettes.png)
+
+### Blender のパネル ｜ The panel ｜ 面板
+
+手動で使うときは 3Dビューで **N** → **MochiToon** タブ ／ For manual use: **N** in the 3D Viewport → **MochiToon** tab ／ 手动使用：3D 视图按 **N** → **MochiToon** 标签页
+
+![MochiToon panel in Blender](docs/panel.png)
 
 ---
 
@@ -92,8 +122,6 @@ MochiToon turns any object into a printed-comic look:
 - The shadow threshold is tuned for the sun from *Setup Cute Scene* (strength π). With your own lights, adjust **Shadow → Size**.
 - Shapes and hatching are in screen space, so they stay the same size on screen like real screentone. Turn **Density** up for smaller shapes in big renders.
 - Orthographic cameras are not supported yet.
-
-![Panel](docs/panel.png)
 
 ---
 
