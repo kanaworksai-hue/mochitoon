@@ -83,8 +83,11 @@ def make_cute(objects=None, palette="SAKURA", shape=None, keep_colors=None, outl
     sid = style_id(style)
     amt = amount_value(amount)
     if keep_colors is None:
-        # textured models keep their texture by default; plain objects take the palette color
-        keep_colors = any(core.base_color_texture(s.material) for o in objs for s in o.material_slots)
+        # textured models keep their texture by default; plain objects take the palette color.
+        # A later tweak ("fewer hearts") keeps what the first call kept: the texture or the object's own color.
+        keep_colors = any(core.base_color_texture(m) or (core.is_mochi(m) and (m.get("mochitoon_kept") or
+                                                                               core.base_texture_node(m)))
+                          for o in objs for m in (s.material for s in o.material_slots))
     if setup_scene:
         core.setup_scene(context.scene, key)
         if context.screen:

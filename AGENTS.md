@@ -60,7 +60,7 @@ bpy.ops.mochitoon.make_cute(palette="PUMPKIN", shape="STAR+MOON+SPARKLE", amount
 `--palette SAKURA --shape HEART+STAR+SPARKLE --amount FEW --light-rim 0.8 --glow 0.4 --setup-scene`
 Add `--smooth` when the scene has low-poly rounded meshes (Blender's Suzanne, game assets). It subdivides them
 non-destructively and skips boxy meshes. Omit `--palette` on later tweaks: the current palette is kept, and so are
-the shapes, style and amount — only what you pass changes.
+the shapes, style and amount — only what you pass changes. Kept colors and textures stay kept on later tweaks too.
 
 | They say | palette |
 |---|---|

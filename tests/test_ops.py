@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 import mochitoon  # noqa: E402
-from mochitoon import core, nodes  # noqa: E402
+from mochitoon import api, core, nodes  # noqa: E402
 
 failures = []
 
@@ -132,6 +132,33 @@ try:
     except RuntimeError as err:  # ERROR reports raise when called from Python
         bad = "raised" if "Unknown palette" in str(err) else str(err)
     check("unknown palette is rejected with the list", bad in ({"CANCELLED"}, "raised"))
+
+    # a follow-up tweak keeps what the first call kept: the object's own color, or its texture
+    bpy.ops.mesh.primitive_cube_add(location=(0, -4, 0))
+    red = bpy.context.object
+    m = bpy.data.materials.new("Red")
+    m.use_nodes = True
+    next(n for n in m.node_tree.nodes if n.type == "BSDF_PRINCIPLED").inputs["Base Color"].default_value = (0.8, 0.02, 0.02, 1)
+    red.data.materials.append(m)
+    api.make_cute(objects=[red], palette="SAKURA", keep_colors=True)
+    api.make_cute(objects=[red], palette=None, amount="FEW")
+    base = nodes.find_core_node(red.material_slots[0].material).inputs["Base Color"].default_value
+    check("tweak keeps the kept color", abs(base[0] - 0.8) < 1e-3 and base[1] < 0.1)
+    bpy.ops.mesh.primitive_plane_add(location=(4, -4, 0))
+    tex_ob = bpy.context.object
+    tm = bpy.data.materials.new("Tex")
+    tm.use_nodes = True
+    img = bpy.data.images.new("checker", 8, 8)
+    tn = tm.node_tree.nodes.new("ShaderNodeTexImage")
+    tn.image = img
+    tm.node_tree.links.new(tn.outputs["Color"], next(n for n in tm.node_tree.nodes if n.type == "BSDF_PRINCIPLED").inputs["Base Color"])
+    tex_ob.data.materials.append(tm)
+    api.make_cute(objects=[tex_ob], palette="SAKURA")
+    check("texture kept on first apply", core.base_texture_node(tex_ob.material_slots[0].material) is not None)
+    api.make_cute(objects=[tex_ob], palette=None, shape="STAR")
+    check("tweak keeps the texture", core.base_texture_node(tex_ob.material_slots[0].material) is not None)
+    api.make_cute(objects=[tex_ob], palette="MINT")
+    check("new palette keeps the texture", core.base_texture_node(tex_ob.material_slots[0].material) is not None)
 
     check("one core group", sum(g.name.startswith(nodes.GROUP_NAME) for g in bpy.data.node_groups) == 1)
 

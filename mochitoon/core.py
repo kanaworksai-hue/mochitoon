@@ -242,6 +242,7 @@ def apply_to_objects(objects, palette_key, keep_colors=False):
                     base = original_base_color(src)
                     name = f"{MAT_PREFIX} {src.name if src else palette_key.title()}"
                     converted[src] = new_material(name, palette_key, base, base_color_texture(src))
+                    converted[src]["mochitoon_kept"] = True  # later tweaks keep this color/texture too
                 slot.material = converted[src]
             continue
         if shared is None:
