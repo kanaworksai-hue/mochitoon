@@ -12,7 +12,7 @@
   <a href="https://github.com/kanaworksai-hue/mochitoon/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/mochitoon?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
-<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>KanaWorks_AI のプロジェクト</b></a></p>
+<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>KanaWorks_AI のプロジェクト</b></a> · <a href="#-kanaworks-のアドオン">シリーズ一覧</a></p>
 
 **日本語** | [English](README.en.md) | [简体中文](README.zh-CN.md)
 
@@ -190,6 +190,17 @@ MochiToon を気に入ったら、[リポジトリのページ](https://github.c
 - **アップデートの励みになる：** 新しい形やパレットを作り続ける力になります。
 
 ほかにも、バグや欲しい機能を [Issue](https://github.com/kanaworksai-hue/mochitoon/issues) で教えてもらったり、作品を X で [@KanaWorks_AI](https://x.com/KanaWorks_AI) をつけて見せてもらえたりすると、とても励みになります。
+
+## 🧩 KanaWorks のアドオン
+
+同じ作者の、無料・オープンソースの Blender アドオンです。どれも AI エージェントに一言で頼めます。
+
+<table>
+<tr>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/mochitoon"><img src="docs/social_preview.png" width="360" alt="MochiToon"></a><br><b>MochiToon</b>（このページ）<br><sub>3D をかわいいマンガ風に。色つきの影、ハートや星の網点、輪郭線</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/kirapaint"><img src="https://raw.githubusercontent.com/kanaworksai-hue/kirapaint/main/docs/social_preview.png" width="360" alt="KiraPaint"></a><br><b><a href="https://github.com/kanaworksai-hue/kirapaint">KiraPaint</a></b><br><sub>3D をキラキラの絵画風 2.5D に。砕いたダイヤのツヤ、筆のタッチ、星の光</sub></td>
+</tr>
+</table>
 
 ## 🛠️ 開発
 

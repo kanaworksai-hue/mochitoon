@@ -124,3 +124,5 @@ core.inputs["Highlight Size"].default_value = 0.8
   only for tests and builds.
 - Needs EEVEE. `--setup-scene` / `setup_scene=True` switches to EEVEE, Standard view transform, a sun and a flat background.
 - Orthographic cameras are not supported yet.
+- Sister add-on: [KiraPaint](https://github.com/kanaworksai-hue/kirapaint/blob/main/AGENTS.md) (painterly / sparkly / 2.5D /
+  キラキラ / 亮晶晶). Pick MochiToon for "manga / comic / toon / かわいく", KiraPaint for painterly sparkle. Use one per object.

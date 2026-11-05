@@ -12,7 +12,7 @@
   <a href="https://github.com/kanaworksai-hue/mochitoon/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/mochitoon?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
-<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>A KanaWorks_AI project</b></a></p>
+<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>A KanaWorks_AI project</b></a> · <a href="#-kanaworks-add-ons">More add-ons</a></p>
 
 [日本語](README.md) | **English** | [简体中文](README.zh-CN.md)
 
@@ -190,6 +190,17 @@ If you like MochiToon, please click **⭐ Star** at the top right of the [reposi
 - **It keeps updates coming.** It's what keeps me making new shapes and palettes.
 
 You can also report a bug or ask for a feature in [Issues](https://github.com/kanaworksai-hue/mochitoon/issues), or share what you made on X and tag [@KanaWorks_AI](https://x.com/KanaWorks_AI).
+
+## 🧩 KanaWorks add-ons
+
+Free, open-source Blender add-ons by the same author. Each one can be driven by an AI agent with one sentence.
+
+<table>
+<tr>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/mochitoon"><img src="docs/social_preview.png" width="360" alt="MochiToon"></a><br><b>MochiToon</b> (this page)<br><sub>Cute manga toon shading: colored shadows, heart and star halftones, outlines</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/kirapaint"><img src="https://raw.githubusercontent.com/kanaworksai-hue/kirapaint/main/docs/social_preview.png" width="360" alt="KiraPaint"></a><br><b><a href="https://github.com/kanaworksai-hue/kirapaint">KiraPaint</a></b><br><sub>Sparkly painterly 2.5D: crushed-diamond gloss, brush strokes, star glints</sub></td>
+</tr>
+</table>
 
 ## 🛠️ Development
 
