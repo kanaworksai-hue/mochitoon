@@ -12,7 +12,7 @@
   <a href="https://github.com/kanaworksai-hue/mochitoon/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/mochitoon?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
-<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>KanaWorks_AI 出品</b></a></p>
+<p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>KanaWorks_AI 出品</b></a> · <a href="#-kanaworks-插件">更多插件</a></p>
 
 [日本語](README.md) | [English](README.en.md) | **简体中文**
 
@@ -190,6 +190,17 @@ AI 助手会按照 [AGENTS.md](AGENTS.md) 的步骤，下载最新版本、装�
 - **让更新继续下去：** 这是我继续做新图形、新配色的动力。
 
 也欢迎在 [Issues](https://github.com/kanaworksai-hue/mochitoon/issues) 里反馈 bug 或想要的功能，或者在 X 上带上 [@KanaWorks_AI](https://x.com/KanaWorks_AI) 分享你的作品。
+
+## 🧩 KanaWorks 插件
+
+同一作者做的免费开源 Blender 插件，每一个都可以跟 AI 代理说一句话来使用。
+
+<table>
+<tr>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/mochitoon"><img src="docs/social_preview.png" width="360" alt="MochiToon"></a><br><b>MochiToon</b>（本页）<br><sub>把 3D 变成可爱的漫画风：彩色阴影、爱心和星星网点、描边</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/kirapaint"><img src="https://raw.githubusercontent.com/kanaworksai-hue/kirapaint/main/docs/social_preview.png" width="360" alt="KiraPaint"></a><br><b><a href="https://github.com/kanaworksai-hue/kirapaint">KiraPaint</a></b><br><sub>把 3D 变成亮晶晶的绘画风 2.5D：碎钻光泽、笔触、星芒</sub></td>
+</tr>
+</table>
 
 ## 🛠️ 开发
 
