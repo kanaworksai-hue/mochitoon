@@ -197,8 +197,16 @@ Free, open-source Blender add-ons by the same author. Each one can be driven by 
 
 <table>
 <tr>
-<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/mochitoon"><img src="docs/social_preview.png" width="360" alt="MochiToon"></a><br><b>MochiToon</b> (this page)<br><sub>Cute manga toon shading: colored shadows, heart and star halftones, outlines</sub></td>
-<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/kirapaint"><img src="https://raw.githubusercontent.com/kanaworksai-hue/kirapaint/main/docs/social_preview.png" width="360" alt="KiraPaint"></a><br><b><a href="https://github.com/kanaworksai-hue/kirapaint">KiraPaint</a></b><br><sub>Sparkly painterly 2.5D: crushed-diamond gloss, brush strokes, star glints</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/mochitoon"><img src="docs/social_preview.png" width="300" alt="MochiToon"></a><br><b>MochiToon</b> (this page)<br><sub>Cute manga toon shading: colored shadows, heart and star halftones, outlines</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/harappa"><img src="https://raw.githubusercontent.com/kanaworksai-hue/harappa/main/docs/social_preview.png" width="300" alt="Harappa"></a><br><b><a href="https://github.com/kanaworksai-hue/harappa">Harappa</a></b><br><sub>Anime-background meadows, trees and sky, plus ponds, waterfalls and weather, in one click</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/senga-sketch"><img src="https://raw.githubusercontent.com/kanaworksai-hue/senga-sketch/main/docs/social_preview.png" width="300" alt="Senga Sketch"></a><br><b><a href="https://github.com/kanaworksai-hue/senga-sketch">Senga Sketch</a></b><br><sub>3D into pen-and-ink line art: hatching, pencil, engraving, screentone</sub></td>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/painterly-25d"><img src="https://raw.githubusercontent.com/kanaworksai-hue/painterly-25d/main/docs/social_preview.png" width="300" alt="Painterly 2.5D"></a><br><b><a href="https://github.com/kanaworksai-hue/painterly-25d">Painterly 2.5D</a></b><br><sub>3D into hand-painted art: oil, watercolour, crayon, anime cel</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><a href="https://github.com/kanaworksai-hue/kirapaint"><img src="https://raw.githubusercontent.com/kanaworksai-hue/kirapaint/main/docs/social_preview.png" width="300" alt="KiraPaint"></a><br><b><a href="https://github.com/kanaworksai-hue/kirapaint">KiraPaint</a></b><br><sub>3D into sparkly painterly 2.5D: crushed-diamond gloss and starlight</sub></td>
+<td align="center" width="50%"></td>
 </tr>
 </table>
 
